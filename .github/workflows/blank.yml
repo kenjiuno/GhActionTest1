@@ -6,6 +6,10 @@ on:
   pull_request:
     branches: [ "main" ]
 
+env:
+  RELEASE_TITLE: "App Development Build"
+  RELEASE_TAG: "release-${{github.run_number}}"
+
 jobs:
   build:
 
@@ -20,6 +24,7 @@ jobs:
       uses: "marvinpinto/action-automatic-releases@latest"
       with:
         repo_token: "${{ secrets.GITHUB_TOKEN }}"
+        automatic_release_tag: "${{ env.RELEASE_TAG }}"
         prerelease: true
-        title: "Development Build"
+        title: ${{ env.RELEASE_TITLE }}
         files: README.md
