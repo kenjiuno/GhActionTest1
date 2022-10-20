@@ -16,8 +16,9 @@ jobs:
       with:
         submodules: recursive
 
-    - name: Release
-      uses: fnkr/github-action-ghr@v1
+    - name: "Release"
+      uses: laminas/automatic-releases@1.0.1
+      with:
+        command-name: "laminas:automatic-releases:release"
       env:
-        GHR_PATH: README.md
-        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        "GITHUB_TOKEN": ${{ secrets.GITHUB_TOKEN }}
