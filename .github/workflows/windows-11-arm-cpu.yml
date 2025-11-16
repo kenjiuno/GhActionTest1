@@ -1,0 +1,19 @@
+# This workflow uses actions that are not certified by GitHub.
+# They are provided by a third-party and are governed by
+# separate terms of service, privacy policy, and support
+# documentation.
+
+name: env
+
+on:
+  push:
+    branches: [ "main" ]
+
+jobs:
+  world:
+    runs-on: windows-11-arm
+
+    steps:
+    - name: Get-CimInstance Win32_Processor | Select-Object Name
+      shell: pwsh
+      run: Get-CimInstance Win32_Processor | Select-Object Name
